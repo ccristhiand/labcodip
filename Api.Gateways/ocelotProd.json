@@ -1,0 +1,283 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://service.poclab.pe/silac"
+  },
+  "Routes": [
+    //---usuario
+    {
+      "UpstreamPathTemplate": "/api/hospitales/{dominio}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/hospitales/{dominio}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8020
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8020
+        }
+      ]
+    },
+
+
+    //--calibracion
+    {
+      "UpstreamPathTemplate": "/api/calibrations",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/calibrations",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/calibrations/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/calibrations/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/calibrations",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/calibrations",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/calibrations",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/calibrations",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/calibrations/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "DownstreamPathTemplate": "/api/calibrations/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+
+
+
+
+    //--control
+    {
+      "UpstreamPathTemplate": "/api/controls",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/controls",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/controls/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/controls/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/controls/options",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/controls/options",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/calibrations/{id}/controls",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/controls/{id}/controls",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/calibrations/{id}/controls/{idcontrol}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/controls/{id}/controls/{idcontrol}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/controls/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "DownstreamPathTemplate": "/api/controls/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+
+
+
+    //--lote
+    {
+      "UpstreamPathTemplate": "/api/batches/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/batches/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/batches",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/batches",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/batches",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/batches",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+
+
+
+
+    //--niveles
+    {
+      "UpstreamPathTemplate": "/api/levels/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/levels/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/levels",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/levels",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/levels",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/levels",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+
+
+
+    //--rango
+    {
+      "UpstreamPathTemplate": "/api/ranges/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/ranges/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/controls/{id}/range",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/ranges/{id}/range",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    }
+
+  ]
+
+}

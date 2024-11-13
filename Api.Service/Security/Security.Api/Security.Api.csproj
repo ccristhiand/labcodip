@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Security\FrontEndUser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Jwt.AuthenticationManagen\Jwt.AuthenticationManagen.csproj" />
+    <ProjectReference Include="..\Security.Service.EventHandlers\Security.Service.EventHandlers.csproj" />
+    <ProjectReference Include="..\Security.Service.Queries\Security.Service.Queries.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,170 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://192.168.1.18:8010"
+  },
+  "Routes": [
+    //---Security
+    {
+      "UpstreamPathTemplate": "/api/login/login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/login/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8020
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/login/loginRefresh/{token}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/login/loginRefresh/{token}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8020
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/login",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8020
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/login/find/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/login/find/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8020
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8020
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/login/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/api/login/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/login/{id}",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "DownstreamPathTemplate": "/api/login/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/login/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "DownstreamPathTemplate": "/api/login/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.23.153.10",
+          "Port": 8030
+        }
+      ]
+    },
+
+    {
+      "UpstreamPathTemplate": "/api/validacionpermiso/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/validacionpermiso/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8020
+        }
+      ]
+    },
+
+
+
+    //--Laboratory
+    {
+      "UpstreamPathTemplate": "/api/calibrations",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/calibrations",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8030
+        }
+      ]
+    },
+
+
+
+
+
+    //--Configuration
+    {
+      "UpstreamPathTemplate": "/api/controls",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/controls",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8030
+        }
+      ]
+    },
+
+
+
+
+    //--Report
+    {
+      "UpstreamPathTemplate": "/api/batches/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/batches/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.1.18",
+          "Port": 8030
+        }
+      ]
+    }
+
+  ]
+
+}

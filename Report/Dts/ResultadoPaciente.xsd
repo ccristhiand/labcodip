@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ResultadoPaciente" targetNamespace="http://tempuri.org/ResultadoPaciente.xsd" xmlns:mstns="http://tempuri.org/ResultadoPaciente.xsd" xmlns="http://tempuri.org/ResultadoPaciente.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ResultadoPaciente" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ResultadoPaciente" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ResultadoPaciente">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ImprimirResultadoPacienteQuery" msprop:Generator_RowEvHandlerName="ImprimirResultadoPacienteQueryRowChangeEventHandler" msprop:Generator_RowDeletedName="ImprimirResultadoPacienteQueryRowDeleted" msprop:Generator_RowDeletingName="ImprimirResultadoPacienteQueryRowDeleting" msprop:Generator_RowEvArgName="ImprimirResultadoPacienteQueryRowChangeEvent" msprop:Generator_TablePropName="ImprimirResultadoPacienteQuery" msprop:Generator_RowChangedName="ImprimirResultadoPacienteQueryRowChanged" msprop:Generator_UserTableName="ImprimirResultadoPacienteQuery" msprop:Generator_RowChangingName="ImprimirResultadoPacienteQueryRowChanging" msprop:Generator_RowClassName="ImprimirResultadoPacienteQueryRow" msprop:Generator_TableClassName="ImprimirResultadoPacienteQueryDataTable" msprop:Generator_TableVarName="tableImprimirResultadoPacienteQuery">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NombreCompleto" msprop:Generator_ColumnPropNameInTable="NombreCompletoColumn" msprop:Generator_ColumnPropNameInRow="NombreCompleto" msprop:Generator_UserColumnName="NombreCompleto" msprop:Generator_ColumnVarNameInTable="columnNombreCompleto" type="xs:string" minOccurs="0" />
+              <xs:element name="NroDocumento" msprop:Generator_ColumnPropNameInTable="NroDocumentoColumn" msprop:Generator_ColumnPropNameInRow="NroDocumento" msprop:Generator_UserColumnName="NroDocumento" msprop:Generator_ColumnVarNameInTable="columnNroDocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="Edad" msprop:Generator_ColumnPropNameInTable="EdadColumn" msprop:Generator_ColumnPropNameInRow="Edad" msprop:Generator_UserColumnName="Edad" msprop:Generator_ColumnVarNameInTable="columnEdad" type="xs:string" minOccurs="0" />
+              <xs:element name="Sexo" msprop:Generator_ColumnPropNameInTable="SexoColumn" msprop:Generator_ColumnPropNameInRow="Sexo" msprop:Generator_UserColumnName="Sexo" msprop:Generator_ColumnVarNameInTable="columnSexo" type="xs:string" minOccurs="0" />
+              <xs:element name="Examen" msprop:Generator_ColumnPropNameInTable="ExamenColumn" msprop:Generator_ColumnPropNameInRow="Examen" msprop:Generator_UserColumnName="Examen" msprop:Generator_ColumnVarNameInTable="columnExamen" type="xs:string" minOccurs="0" />
+              <xs:element name="Resultado" msprop:Generator_ColumnPropNameInTable="ResultadoColumn" msprop:Generator_ColumnPropNameInRow="Resultado" msprop:Generator_UserColumnName="Resultado" msprop:Generator_ColumnVarNameInTable="columnResultado" type="xs:string" minOccurs="0" />
+              <xs:element name="UnidadMedida" msprop:Generator_ColumnPropNameInTable="UnidadMedidaColumn" msprop:Generator_ColumnPropNameInRow="UnidadMedida" msprop:Generator_UserColumnName="UnidadMedida" msprop:Generator_ColumnVarNameInTable="columnUnidadMedida" type="xs:string" minOccurs="0" />
+              <xs:element name="Medico" msprop:Generator_ColumnPropNameInTable="MedicoColumn" msprop:Generator_ColumnPropNameInRow="Medico" msprop:Generator_UserColumnName="Medico" msprop:Generator_ColumnVarNameInTable="columnMedico" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaNacimiento" msprop:Generator_ColumnPropNameInTable="FechaNacimientoColumn" msprop:Generator_ColumnPropNameInRow="FechaNacimiento" msprop:Generator_UserColumnName="FechaNacimiento" msprop:Generator_ColumnVarNameInTable="columnFechaNacimiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaOrden" msprop:Generator_ColumnPropNameInTable="FechaOrdenColumn" msprop:Generator_ColumnPropNameInRow="FechaOrden" msprop:Generator_UserColumnName="FechaOrden" msprop:Generator_ColumnVarNameInTable="columnFechaOrden" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RangoMostrar" msprop:Generator_ColumnPropNameInTable="RangoMostrarColumn" msprop:Generator_ColumnPropNameInRow="RangoMostrar" msprop:Generator_UserColumnName="RangoMostrar" msprop:Generator_ColumnVarNameInTable="columnRangoMostrar" type="xs:string" minOccurs="0" />
+              <xs:element name="NombrePerfil" msprop:Generator_UserColumnName="NombrePerfil" msprop:Generator_ColumnPropNameInTable="NombrePerfilColumn" msprop:Generator_ColumnPropNameInRow="NombrePerfil" msprop:Generator_ColumnVarNameInTable="columnNombrePerfil" type="xs:string" minOccurs="0" />
+              <xs:element name="NombreArea" msprop:Generator_UserColumnName="NombreArea" msprop:Generator_ColumnPropNameInTable="NombreAreaColumn" msprop:Generator_ColumnPropNameInRow="NombreArea" msprop:Generator_ColumnVarNameInTable="columnNombreArea" type="xs:string" minOccurs="0" />
+              <xs:element name="Titulo" msprop:Generator_ColumnPropNameInRow="Titulo" msprop:Generator_ColumnPropNameInTable="TituloColumn" msprop:Generator_ColumnVarNameInTable="columnTitulo" msprop:Generator_UserColumnName="Titulo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
