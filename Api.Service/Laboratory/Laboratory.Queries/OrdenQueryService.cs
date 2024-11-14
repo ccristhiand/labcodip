@@ -580,8 +580,8 @@ namespace Laboratory.Service.Queries
                 var ordenExamen = await (from ex in _dbContext.Examen
                                          where
                                           (idArea == "TODOS" || ex.IdArea == idArea) &&
-                                          ((string.IsNullOrEmpty(text) || ex.Nombre == text) ||
-                                          (string.IsNullOrEmpty(text) || ex.Abreviatura == text)) &&
+                                          ((string.IsNullOrEmpty(text) || ex.Nombre.Contains(text)) ||
+                                          (string.IsNullOrEmpty(text) || ex.Abreviatura.Contains(text))) &&
                                          ex.Estado == States.Activo &&
                                          !listaIdExamen.Contains(ex.IdExamen!)
                                          select new OrdenExamenQuery

@@ -29,7 +29,7 @@
 
     public class Summary
     {
-        public const string Success = "ÉXITO";
+        public const string Success = "ÉXITO"; 
         public const string Alert = "ADVERTENCIA";
         public const string Error = "ERROR";
     }
