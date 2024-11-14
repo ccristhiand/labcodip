@@ -36,7 +36,7 @@
 
     public class MsgUser
     {
-        public const string SuccesUser = "Bienvenido al sistema de SILAC WEB.";
+        public const string SuccesUser = "Bienvenido al sistema de LABCODIP.";
         public const string ErrorUser = "El nombre del usuario o contraseña es incrorrecta.";
     }
 

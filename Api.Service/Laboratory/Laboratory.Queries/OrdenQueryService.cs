@@ -12,7 +12,7 @@ namespace Laboratory.Service.Queries
         Task<OrdenQuery> Find(string? id, string? usuario);
         Task<List<OrdenExamenQuery>> FindExamen(string? id, string idarea, string? usuario);
         Task<List<OptionQuery>> Option(string? usuario);
-        Task<List<OrdenExamenQuery>> Examen(string? id, string idArea);
+        Task<List<OrdenExamenQuery>> Examen(string? id, string idArea, string? text);
         Task<ReporteQuery> ValTipoMuestra(RequestReport request);
     }
     public class OrdenQueryService : IOrdenQueryService
@@ -560,7 +560,7 @@ namespace Laboratory.Service.Queries
             }
         }
 
-        public async Task<List<OrdenExamenQuery>> Examen(string? id, string idArea)
+        public async Task<List<OrdenExamenQuery>> Examen(string? id, string idArea, string? text)
         {
             try
             {
@@ -580,6 +580,8 @@ namespace Laboratory.Service.Queries
                 var ordenExamen = await (from ex in _dbContext.Examen
                                          where
                                           (idArea == "TODOS" || ex.IdArea == idArea) &&
+                                          ((string.IsNullOrEmpty(text) || ex.Nombre == text) ||
+                                          (string.IsNullOrEmpty(text) || ex.Abreviatura == text)) &&
                                          ex.Estado == States.Activo &&
                                          !listaIdExamen.Contains(ex.IdExamen!)
                                          select new OrdenExamenQuery

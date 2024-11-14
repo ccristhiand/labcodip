@@ -75,6 +75,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualityControl.Service.Quer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualityControl.Service.EventHandlers", "Api.Service\QualityControl\QualityControl.Service.EventHandlers\QualityControl.Service.EventHandlers.csproj", "{05B26569-DA13-485D-9395-719C4FD88F7B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07.ExternalService", "07.ExternalService", "{663F1E4D-E2F0-43D8-A718-F9B6E8B1B9DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "External.Service", "External.Service\External.Service.csproj", "{58146963-10A3-4947-AC1D-748D89B4E1B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -177,6 +181,10 @@ Global
 		{05B26569-DA13-485D-9395-719C4FD88F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05B26569-DA13-485D-9395-719C4FD88F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05B26569-DA13-485D-9395-719C4FD88F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58146963-10A3-4947-AC1D-748D89B4E1B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58146963-10A3-4947-AC1D-748D89B4E1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58146963-10A3-4947-AC1D-748D89B4E1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58146963-10A3-4947-AC1D-748D89B4E1B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -212,6 +220,7 @@ Global
 		{D15ED813-6ADA-42A2-8BF9-889F3512748F} = {D434CFB0-12B8-4B46-BFF0-1F85FD11177D}
 		{E16EDD76-D437-4E9E-9061-B5BBD2D16EBC} = {E6A7A875-58D8-47F3-A7EC-BEA4570E891A}
 		{05B26569-DA13-485D-9395-719C4FD88F7B} = {E6A7A875-58D8-47F3-A7EC-BEA4570E891A}
+		{58146963-10A3-4947-AC1D-748D89B4E1B2} = {663F1E4D-E2F0-43D8-A718-F9B6E8B1B9DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE40F6E1-9B98-4875-BDAC-25AD13717AE5}

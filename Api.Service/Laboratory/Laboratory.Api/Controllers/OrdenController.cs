@@ -61,9 +61,9 @@ namespace Laboratory.Api.Controllers
         }
 
         [HttpGet("examen")]
-        public async Task<IActionResult> Examen(string? id, string idArea)
+        public async Task<IActionResult> Examen(string? id, string idArea,string? text)
         {
-            var response = await _ordenQueryService.Examen(id, idArea);
+            var response = await _ordenQueryService.Examen(id, idArea,text);
 
             return Ok(response);
         }
