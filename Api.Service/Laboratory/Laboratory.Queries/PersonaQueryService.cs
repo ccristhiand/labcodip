@@ -49,13 +49,13 @@ namespace Laboratory.Service.Queries
                     persona = new PersonaQuery();
                     ReniecDto person = await _reniecService.Get(id);
                    
-                    if (person != null) {
+                    if (person.IsSuccess==true ) {
                         
-                        persona.Nombre = person.Nombre;
-                        persona.NroDocumento = person.Dni;
-                        persona.FechaNacimiento= person.FechaNacimiento;
+                        persona.Nombre = person.Data.Nombre;
+                        persona.NroDocumento = person.Data.Dni;
+                        persona.FechaNacimiento= person.Data.FechaNacimiento;
                         persona!.Edad = Configurations.calcularEdad(persona.FechaNacimiento);
-                        string[] apellidos = (person.Apellido ?? "").Split(' ');
+                        string[] apellidos = (person.Data.Apellido ?? "").Split(' ');
                         persona.ApePaterno = apellidos.Length > 0 ? apellidos[0] : string.Empty;
                         if (apellidos.Length > 2)
                         {

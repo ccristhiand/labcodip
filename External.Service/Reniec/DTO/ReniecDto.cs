@@ -2,19 +2,24 @@
 {
     public class ReniecDto
     {
-        public string? Dni { get; set; }
-        public string? Nombre { get; set; }
-        public string? Apellido { get; set; }
-        public DateTime? FechaNacimiento { get; set; }
-        public string? Direccion { get; set; }
+        public ReniecDto() { }
+        public List<MessageData>? Messages { get; set; }
+        public personDto? Data { get; set; }
+        public bool? IsSuccess { get; set; }
     }
 
     public class MessageData
     {
+        public string? Code { get; set; }
+        public string? Message { get; set; }
+        public string? Type { get; set; }
+    }
+    public class personDto
+    {
         public string? Dni { get; set; }
-        public string? Nombres { get; set; }
-        public string? Apellidos { get; set; }
-        public List<int>? FechaNacimiento { get; set; }
+        public string? Nombre { get; set; }
+        public string? Apellido { get; set; }
+        public DateTime? FechaNacimiento { get; set; }
         public string? Direccion { get; set; }
     }
 }

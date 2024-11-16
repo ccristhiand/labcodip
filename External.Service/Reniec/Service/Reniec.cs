@@ -18,7 +18,8 @@ namespace External.Service.Reniec.Service
         {
             try
             {
-                string url = $"https://netcodip.com:8070/api/reniec?dni={dni}";
+                
+                string url = $"https://netcodip.com:8070/api/reniec/getByDocument?dni={dni}";
 
                 // Realiza la solicitud GET a la URL construida
                 HttpResponseMessage response = await _httpClient.GetAsync(url);
@@ -31,7 +32,7 @@ namespace External.Service.Reniec.Service
                 }
                 else
                 {
-                    throw new Exception($"Error: {response.StatusCode}");
+                    return new ReniecDto{ IsSuccess=false};
                 }
             }
             catch (Exception ex)
