@@ -102,6 +102,14 @@ namespace Security.Service.EventHandlers
                     return response;
                 }
 
+                validarUsuario = _dbContext.Usuario.AsNoTracking().Where(x => x.UserName.Replace(" ", "").ToLower() == command.UserName.Replace(" ", "").ToLower()).Any();
+
+                if (validarUsuario)
+                {
+                    response = Configurations.Response(new Messages().YaExiste(Forms.Usuario), TypeResponse.Alert);
+                    return response;
+                }
+
                 //Persona
                 Configurations configurations = new Configurations(_dbContext);
 

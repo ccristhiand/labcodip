@@ -3,6 +3,7 @@ using Common.Utility;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Database;
 using System.Data;
+using System.Linq;
 
 namespace Laboratory.Service.Queries
 {
@@ -317,31 +318,45 @@ namespace Laboratory.Service.Queries
                 {
                     var idUsuario = usuarioRol.FirstOrDefault()!.IdUsuario!;
 
-                    var usuarioArea = await (from us in _dbContext.UsuarioArea
+                    var listArea = await (from us in _dbContext.UsuarioArea
                                              join ar in _dbContext.Area on us.IdArea equals ar.IdArea
                                              where
                                              us.IdUsuario == idUsuario
-                                             select new ExamenQuery
-                                             {
-                                                 IdArea = ar.IdArea,
-                                                 IdLaboratorio = ar.IdLaboratorio,
-                                             }).FirstOrDefaultAsync();
+                                             select ar.IdArea).ToListAsync();
 
-                    var idarea = (usuarioArea!.IdArea == UserLaboratorio.Emergencia) ? null : usuarioArea!.IdArea;
+                    var valEmergency = listArea.Any(y=>y== UserLaboratorio.Emergencia);
 
-                    var listadoAre = await (from ar in _dbContext.Area
-                                            where
-                                            (idarea == null || ar.IdArea == idarea) &&
-                                            ar.IdArea != UserLaboratorio.Emergencia &&
-                                            ar.Estado == States.Activo
-                                            select new OptionQuery
-                                            {
-                                                Id = ar.IdArea,
-                                                Nombre = ar.Nombre,
-                                                Tipo = Forms.Area
-                                            }).ToListAsync();
+                    if (!valEmergency)
+                    {
+                        var listadoArea = await (from ar in _dbContext.Area
+                                                where
+                                                listArea.Contains(ar.IdArea) &&
+                                                ar.IdArea != UserLaboratorio.Emergencia &&
+                                                ar.Estado == States.Activo
+                                                select new OptionQuery
+                                                {
+                                                    Id = ar.IdArea,
+                                                    Nombre = ar.Nombre,
+                                                    Tipo = Forms.Area
+                                                }).ToListAsync();
 
-                    ordenQuery!.ListaOpciones.AddRange(listadoAre);
+                        ordenQuery!.ListaOpciones.AddRange(listadoArea);
+                    }
+                    else
+                    {
+                        var listadoArea = await (from ar in _dbContext.Area
+                                                where
+                                                ar.IdArea != UserLaboratorio.Emergencia &&
+                                                ar.Estado == States.Activo
+                                                select new OptionQuery
+                                                {
+                                                    Id = ar.IdArea,
+                                                    Nombre = ar.Nombre,
+                                                    Tipo = Forms.Area
+                                                }).ToListAsync();
+
+                        ordenQuery!.ListaOpciones.AddRange(listadoArea);
+                    }
                 }
 
                 ordenQuery!.ListaOpciones.AddRange(listadoMaestro);
