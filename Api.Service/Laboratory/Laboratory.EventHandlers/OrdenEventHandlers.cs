@@ -67,7 +67,7 @@ namespace Laboratory.Service.EventHandlers
                     ordenExamen.Estado = States.Pendiente;
                     ordenExamen.Accion = Actions.Creado;
                     ordenExamen.Idperfil = x.Idperfil;
-                    ordenExamen.NombrePerfil = x.Idperfil;
+                    ordenExamen.NombrePerfil = x.NombrePerfil;
 
                     await _dbContext.OrdenExamen.AddAsync(ordenExamen);
                 });
