@@ -26,7 +26,7 @@ namespace Laboratory.Service.Queries
         {
             try
             {
-                var persona = await (from pe in _dbContext.Persona
+                var persona = await (from pe in _dbContext.Persona.AsNoTracking()
                                      where
                                      pe.NroDocumento == id
                                      select new PersonaQuery
