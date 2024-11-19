@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Jwt.AuthenticationManagen\Jwt.AuthenticationManagen.csproj" />
     <ProjectReference Include="..\Tracking.Service.Queries\Tracking.Service.Queries.csproj" />
   </ItemGroup>
 

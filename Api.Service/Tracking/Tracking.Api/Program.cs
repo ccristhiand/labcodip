@@ -1,11 +1,30 @@
+using Jwt.AuthenticationManagen;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
 using Persistence.Database;
 using Tracking.Api.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//-------Configuracion los permisos para que otros navegadores puedan consumir--
 builder.Services.AddCorsApp();
+
+//--------Configuracion Inyeccion Independecnia
+builder.Services.ConfigureDI();
+
+builder.Services.AddMemoryCache();
+
+//---- Configuracion los controladores para la autenticacion--
+builder.Services.AddControllers(op =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    op.Filters.Add(new AuthorizeFilter(policy));
+});
+
 
 builder.Services.AddSwaggerGen(options =>
 {
@@ -36,9 +55,13 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// Add services to the container.
-builder.Services.ConfigureDI();
-builder.Services.AddControllers();
+
+builder.Services.TryAddSingleton<ISystemClock, SystemClock>();
+
+//---- llamando la authentication autenticacion--
+builder.Services.AddCustomJWTAuthentication();
+
+//--------Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -46,12 +69,13 @@ builder.Services.AddDbContext<PersistenceDatabase>(options => options.UseSqlServ
 
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseHsts();
 }
 
 app.UseRouting();

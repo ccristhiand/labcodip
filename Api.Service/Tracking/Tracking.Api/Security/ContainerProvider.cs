@@ -16,8 +16,6 @@ namespace Tracking.Api.Security
             services.AddHttpContextAccessor();
             services.AddScoped<ITrackingQueryService, TrackingQueryService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
-
         }
-
     }
 }

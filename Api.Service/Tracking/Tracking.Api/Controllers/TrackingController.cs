@@ -5,7 +5,7 @@ namespace Tracking.Api.Controllers
 {
     [ApiController]
     [Route("api/tracking")]
-    public class TrackingController : ControllerBase
+    public class TrackingController : BaseController
     {
         private readonly ITrackingQueryService _ITrackingQueryService;
 
@@ -13,6 +13,7 @@ namespace Tracking.Api.Controllers
         {
             _ITrackingQueryService = ITrackingQueryService;
         }
+
         [HttpGet]
         public async Task<IActionResult> Get(string? dateInit, string? dateFin, string? text, int page, int pages)
         {
