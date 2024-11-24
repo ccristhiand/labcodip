@@ -1,3 +1,4 @@
+using Common.Utility;
 using Jwt.AuthenticationManagen;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -7,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
 using Persistence.Database;
 using Security.Api.Security;
+using System.Net.WebSockets;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,9 +58,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-var key = builder.Configuration.GetValue<string>("ApiSettings:secret");
-
-
 builder.Services.TryAddSingleton<ISystemClock, SystemClock>();
 
 //---- llamando la authentication autenticacion--
@@ -70,6 +70,29 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PersistenceDatabase>(options => options.UseSqlServer());
 
 var app = builder.Build();
+
+//Configurar opciones para WebSocket
+var webSocketOptions = new WebSocketOptions
+                       {
+                           KeepAliveInterval = TimeSpan.FromMinutes(2)
+                       };
+
+// Habilitar el soporte de WebSocket
+app.UseWebSockets(webSocketOptions);
+
+// Middleware de WebSocket
+app.Map("/ws", async context =>
+{
+    if (context.WebSockets.IsWebSocketRequest)
+    {
+        var webSocket = await context.WebSockets.AcceptWebSocketAsync();
+        await WebSocketHandler.HandleWebSocketCommunication(context, webSocket);
+    }
+    else
+    {
+        context.Response.StatusCode = StatusCodes.Status400BadRequest;
+    }
+});
 
 if (app.Environment.IsDevelopment())
 {
@@ -92,4 +115,4 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();

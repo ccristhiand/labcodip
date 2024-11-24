@@ -10,6 +10,7 @@ namespace Persistence.Database.CurrentUser.Claims
         public string usuario { get { return Identity.IsAuthenticated ? FindFirst("usuario").Value : ""; } }
         public string? idHospital { get { return Identity.IsAuthenticated ? FindFirst("idHospital").Value : ""; } }
         public string? idClient { get { return Identity.IsAuthenticated ? FindFirst("idClient").Value : ""; } }
+        public string? idUser { get { return Identity.IsAuthenticated ? FindFirst("idUser").Value : ""; } }
 
     }
 }

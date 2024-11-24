@@ -1,6 +1,7 @@
 using Jwt.AuthenticationManagen;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Security.Api.Security;
 using Security.Service.EventHandlers;
 using Security.Service.Queries;
 
@@ -30,6 +31,8 @@ namespace Security.Api.Controllers
         {
             var authentication = _jwtTokenHandler.GenerateJwtToken(request.usuario!, request.password!, request.domain!);
             if (authentication == null) return Unauthorized();
+
+            await WebSocketHandler.NotifyOtherSessionsAsync(authentication.IdUser!);
 
             return Ok(authentication);
         }

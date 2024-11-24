@@ -15,10 +15,7 @@ namespace Jwt.AuthenticationManagen
     {
         public const string JWT_SECURITY_KEY = "!SDFT$$$$&F(/GF7&F7f))?=0'===IY(&&%$%$!H(U/GFD%VBN(MI YT% %RCGRCVBBUJNU(NN";
         public const int JWT_TOKEN_VALIDITY_MINS = 180;
-
         public readonly string _conexion;
-
-        //private readonly PersistenceDatabase _dbContext;
 
         public JwtTokenHandler(string Conexion)
         {
@@ -45,6 +42,7 @@ namespace Jwt.AuthenticationManagen
                     new Claim("idrol",(usuario.IdRol==null || usuario.IdRol=="")?user:usuario.IdRol),
                     new Claim("permisoEscritura",usuario.Permiso_Escritura.ToString()??"false"),
                     new Claim("idClient", connection!.IdClient!),
+                    new Claim("idUser",(usuario.IdUser==null || usuario.IdUser=="")?"":usuario.IdUser),
                 };
 
 
@@ -65,6 +63,7 @@ namespace Jwt.AuthenticationManagen
                 token.TypeResponse = TypeResponse.Success;
                 token.Summary = Summary.Success;
                 token.Message = MsgUser.SuccesUser;
+                token.IdUser = usuario.IdUser;
             }
             else
             {
@@ -94,6 +93,7 @@ namespace Jwt.AuthenticationManagen
                new Claim("idrol", claims1[3].Value),
                new Claim("permisoEscritura", claims1[4].Value),
                new Claim("idClient", claims1[5].Value),
+               new Claim("idUser", claims1[6].Value),
             };
 
             var key = Encoding.ASCII.GetBytes(JWT_SECURITY_KEY);

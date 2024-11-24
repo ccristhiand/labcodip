@@ -8,7 +8,7 @@
                 @contrasenia VARCHAR(50)
 
                 AS
-                select US.UserName Usuario, PE.ApePaterno+ ' '+PE.Nombre Nombres, PE.NroDocumento Documento, UR.IdRol,US.Permiso_Escritura from [segu].[Usuario] US
+                select US.IdUsuario IdUser, US.UserName Usuario, PE.ApePaterno+ ' '+PE.Nombre Nombres, PE.NroDocumento Documento, UR.IdRol,US.Permiso_Escritura from [segu].[Usuario] US
                 INNER JOIN [conf].[Persona] PE ON US.IdPersona = PE.IdPersona
                 INNER JOIN [segu].[UsuarioRol] UR ON US.IdUsuario = UR.IdUsuario
                 WHERE 

@@ -12,6 +12,7 @@
         public string? Message { get; set; }
         public bool? Permiso_Escritura { get; set; }
         public string? Access_token { get; set; }
+        public string? IdUser { get; set; }
 
     }
 
@@ -23,5 +24,6 @@
         public string? Summary { get; set; }
         public string? Message { get; set; }
         public string? Access_token { get; set; }
+        public string? IdUser { get; set; }
     }
 }
